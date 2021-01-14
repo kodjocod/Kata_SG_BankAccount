@@ -56,5 +56,21 @@ namespace Tests
 
             Check.That(transactions).HasFieldsWithSameValues(expectedOperations);
         }
+        [Test]
+        public void Make_several_withdrawal_when_client_want_to_widthdraw_money_from_his_account()
+        {
+            List<OperationData> transactions = new List<OperationData>();
+            BankServices bankservices = new BankServices(transactions);
+            bankservices.MakeWithDrawal(new OperationData("WITHDRAWAL", new Amount(80)));
+            bankservices.MakeWithDrawal(new OperationData("WITHDRAWAL", new Amount(100)));
+
+            List<OperationData> expectedOperations = new List<OperationData>
+            {
+                new OperationData("WITHDRAWAL", new Amount(80)),
+                new OperationData("WITHDRAWAL", new Amount(100))
+            };
+
+            Check.That(transactions).HasFieldsWithSameValues(expectedOperations);
+        }
     }
 }
