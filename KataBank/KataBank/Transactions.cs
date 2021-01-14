@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace KataBank
 {
@@ -15,6 +15,11 @@ namespace KataBank
          public void Add(OperationData operation)
         {
             this.operationDatas.Add(operation);
+        }
+
+        public int ComputeAccountBalance(List<OperationData> transactions)
+        {
+            return transactions.Sum(item => item.Amount);
         }
     }
 }

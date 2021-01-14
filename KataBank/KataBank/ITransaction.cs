@@ -7,5 +7,6 @@ namespace KataBank
     interface ITransaction
     {
         void Add(OperationData operation);
+        int ComputeAccountBalance(List<OperationData> transactions);
     }
 }
