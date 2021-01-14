@@ -1,19 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace KataBank
 {
     public class BankServices
     {
-        private List<Amount> operations;
+        private readonly List<OperationData> transactions;
 
-        public BankServices(List<Amount> operations)
+        public BankServices(List<OperationData> operations)
         {
-            this.operations = operations;
+            this.transactions = operations;
         }
 
-        public void MakeDeposit(Amount amount)
+        public void MakeDeposit(OperationData operationData)
         {
-            this.operations.Add(amount);
+            this.transactions.Add(operationData);
+        }
+
+        public void MakeWithDrawal(OperationData operationData)
+        {
+            this.transactions.Add(operationData);
         }
     }
 }
