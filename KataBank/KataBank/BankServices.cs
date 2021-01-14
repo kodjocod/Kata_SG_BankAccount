@@ -5,11 +5,12 @@ namespace KataBank
 {
     public class BankServices
     {
-        private readonly List<OperationData> transactions;
+        private Transaction transactions;
 
         public BankServices(List<OperationData> operations)
         {
-            this.transactions = operations;
+            transactions = new Transaction(operations);
+            
         }
 
         public void MakeDeposit(OperationData operationData)
