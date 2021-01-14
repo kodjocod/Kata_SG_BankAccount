@@ -1,14 +1,24 @@
-﻿namespace KataBank
+﻿using System;
+
+namespace KataBank
 {
     public class OperationData
     {
-        private readonly string operationType;
-        private readonly Amount amount;
+        public string OperationType { get; set; }
+        public int Amount { get;  set; }
+        public DateTime OperationDate { get;  set; }
 
-        public OperationData(string operationType, Amount amount)
+        public OperationData(string operationType, int amount, DateTime operationDate)
         {
-            this.operationType = operationType;
-            this.amount = amount;
+            this.OperationType = operationType;
+            this.Amount = amount;
+            this.OperationDate = operationDate;
+        }
+
+        public OperationData(string operationType, int amount)
+        {
+            this.OperationType = operationType;
+            this.Amount = amount;
         }
     }
 }
